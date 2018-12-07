@@ -26,12 +26,6 @@ public class LaborController {
     @FXML
     TextField chosenFileTextField;
 
-    @FXML
-    public void initialize() {
-        chosenFile = new File("/Users/edward/Downloads/Без названия (2).xls");
-        chosenFileTextField.setText("/Users/edward/Downloads/Без названия (2).xls");
-    }
-
     private enum Extension {
         EXCEL("XML files (*.xls, *.xlsx)", new String[]{"*.xls", EXCEL_2007_FILE_EXTENSION}),
         EXCEL_2007("XML files (*.xlsx)", new String[]{EXCEL_2007_FILE_EXTENSION});
