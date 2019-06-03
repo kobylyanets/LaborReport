@@ -3,8 +3,9 @@ package ru.indraft.service;
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVRecord;
 
-import java.io.FileReader;
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.List;
@@ -12,7 +13,7 @@ import java.util.stream.Collectors;
 
 class HolidayService {
 
-    private static final String CSV_PATH = "/calendar/proizv_cal.csv";
+    private static final String CSV_PATH = "calendar/proizv_cal.csv";
 
     private static class Column {
         private final static int YEAR = 0;
@@ -21,8 +22,9 @@ class HolidayService {
     private List<CSVRecord> rows;
 
     HolidayService() throws IOException {
-        var in = new FileReader(getClass().getResource(CSV_PATH).getFile());
-        var parser = CSVFormat.EXCEL.withSkipHeaderRecord().parse(in);
+        var in =  getClass().getClassLoader().getResourceAsStream(CSV_PATH);
+        BufferedReader input = new BufferedReader(new InputStreamReader(in));
+        var parser = CSVFormat.EXCEL.withSkipHeaderRecord().parse(input);
         rows = parser.getRecords();
     }
 
