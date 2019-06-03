@@ -27,8 +27,8 @@ public class LaborController {
     TextField chosenFileTextField;
 
     private enum Extension {
-        EXCEL("XML files (*.xls, *.xlsx)", new String[]{"*.xls", EXCEL_2007_FILE_EXTENSION}),
-        EXCEL_2007("XML files (*.xlsx)", new String[]{EXCEL_2007_FILE_EXTENSION});
+        EXCEL("XML files (*.xls, *.xlsx)", new String[]{"*.xls", "*.xlsx"}),
+        EXCEL_2007("XML files (*.xlsx)", new String[]{"*.xlsx"});
 
         private String description;
         private String[] extensions;
